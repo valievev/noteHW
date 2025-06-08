@@ -33,6 +33,11 @@ object NoteService {
     private var notes = mutableListOf<Note>()
     private var comments = mutableListOf<Comment>()
 
+    fun resetNote(){
+        notes.clear()
+        comments.clear()
+    }
+
     fun add(note: Note): Note {
         val newNote = note.copy(id = if (!notes.isEmpty()) notes.last().id + 1 else 0)
         notes.add(newNote)
